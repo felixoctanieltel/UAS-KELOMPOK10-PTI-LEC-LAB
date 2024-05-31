@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusa Tenggara Timur</title>
+    
+
+    <!---custom css link-->
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!---boxicons css link-->
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+     rel="stylesheet">
+
+     <!---google font css link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="APIs/maps.js"></script>
+
+
+     
+</head>
+<body>
+    <!---custom hs file link-->
+    <header>
+        <a href="#" class="logo">N<span>TT</span></a>
+
+    <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#information">Information</a></li>
+        <li><a href="#culture">Wisata</a></li>
+        <li><a href="#review">Review</a></li>
+        <li><a href="#kontek">Contact us</a></li>
+    </ul>
+
+    <div class="h-right">
+        <a href="https://www.instagram.com/ntt.update?igsh=aG9tMmxpOTk4cDRn"><i class="ri-instagram-line"></i></a>
+        <a href="https://x.com/NTT_Update?t=Z-37zqT9ZUtVsl9lpTVjDQ&s=09"><i class="ri-twitter-x-line"></i></a>
+        <a href="https://www.facebook.com/groups/nusatenggaratimor/?ref=share&mibextid=NSMWBT"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" class="icon" data-target="dropdown4"><i class="ri-money-dollar-box-fill"></i></a>
+        <a href="#" class="icon" data-target="dropdown5"><i class="ri-time-line"></i></a>
+        <a href="#" class="icon" data-target="dropdown6"><i class="ri-cloudy-line"></i></a>
+        <a href="#" class="icon" data-target="dropdown7"><i class="ri-earthquake-line"></i></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+
+    <section class="currency dropdown" id="dropdown4">
+        <div class="currency-text">
+            <h2>Current Exchange Rates (IDR)</h2>
+            <div id="exchange-rates">Loading exchange rates...</div>
+        </div>
+        <script src="APIs/currency.js"></script>
+        <input type="text" id="search-input" placeholder="Search currency...">
+        <div id="currency-list"></div>
+    </section>
+
+    <div class="dropdown" id="dropdown5">
+        <h3>Waktu di Palu:</h3>
+        <p id="waktu-jakarta">Memuat...</p>
+        <script src="APIs/time.js"></script>
+    </div>
+
+    <div class="dropdown" id="dropdown6">
+        <h1>Cuaca di Nusa Tenggara Timur</h1>
+        <div id="weather-data">
+            <div id="weather-icon"></div>
+            <div id="weather-suhu"></div>
+            <div id="weather-area"></div>
+        </div>
+        <script src="APIs/weather.js"></script>
+    </div>
+
+    <div class="dropdown" id="dropdown7">
+        <h1>Informasi Gempa Terkini</h1>
+        <div id="earthquake-info">Memuat informasi gempa...</div>
+        <script src="APIs/gempa.js"></script>
+    </div>
+    
+        <script>
+            document.querySelectorAll('.icon').forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetDropdown = document.getElementById(this.dataset.target);
+        
+                    // Hide all dropdowns
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        if (dropdown !== targetDropdown) {
+                            dropdown.style.display = 'none';
+                        }
+                    });
+        
+                    // Toggle the visibility of the target dropdown
+                    targetDropdown.style.display = targetDropdown.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        
+            // Close dropdown if clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.icon')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+            });
+        
+            // Prevent dropdown from closing when clicking on search input
+            document.getElementById('search-input').addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent event propagation to avoid closing dropdown
+            });
+        </script>
+        
+
+
+
+
+
+    </header>
+    
+    <!---home section file link-->
+    <section id="home" class="home">
+        <div class="home-text">
+             <h5>Let's</h5>
+             <h1> See The Beauty<br> of the East Nusa Tenggara Island</h1>
+             <p>East Nusa Tenggara Island which has various 
+                kinds<br>of natural beauty from beaches, sea, mountains etc</p>
+             <a href="https://youtu.be/l0O6mcI-WMk?si=FHXjA7YY-8yjg-kU" class="btn">See More</a>
+        </div>    
+    </section>
+
+   
+    <section class="aboutus">
+        <h2>About Us </h2>
+        <div class="aboutus-content">
+            <div class="profile-card">
+                <img src="assets/pfadil.jpeg" alt="Nur Faidillah">
+                <h5>Nur Faidillah</h5>
+                <p>00000053182</p>
+            </div>
+            <div class="profile-card">
+                <img src="assets/prasya.jpg" alt="Rasya Abhista I.">
+                <h5>Rasya Abhista I.</h5>
+                <p>00000104642</p>
+            </div>
+            <div class="profile-card">
+                <img src="assets/pvanes.jpg" alt="Vanessa Audrelia C.">
+                <h5>Vanessa Audrelia</h5>
+                <p>00000104990</p>
+            </div>
+            <div class="profile-card">
+                <img src="assets/pfelix.jpg" alt="Felix Octaniel T.">
+                <h5>Felix Octaniel T.</h5>
+                <p>00000101926</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Sejarah section-->
+    <section id="information" class="Sejarah">
+        <div class="Sejarah-img">
+            <img src="assets/Komodo Island Pink Beach, Indonesia.jpeg">
+        </div>
+
+        <div class="Sejarah-text">
+            <h5>Nusa Tenggara Timur</h5>
+            <h2>Apakah Kalian Tau?</h2>
+            <p>Nusa Tenggara Timur (NTT) adalah provinsi yang memikat di Indonesia, yang terletak di ujung timur kepulauan Nusa Tenggara. 
+               Dikenal karena keindahan alamnya yang menakjubkan, NTT merupakan surga bagi para petualang dan pecinta alam.
+                Dari perairan jernih hingga puncak gunung yang menjulang, setiap sudut NTT menyajikan pesona alam yang tiada tara.</p>
+                <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+
+    <!--Top Destination section-->
+    <div>
+
+
+    <section id="culture" class="Top">
+        <div class="center-text">
+            <h2>Top Destinations</h2>
+        </div>
+
+        <div class="Destinations-content">
+            <div class="box">
+                <a href="pink.html">
+                <img src="assets/pantai.jpg"></a>
+                <h6>Nusa Tenggara Timur</h6>
+                <h4>Pantai Pink</h4>
+            </div>
+
+            <div class="box">
+                <a href="bajo.html">
+                <img src="assets/resize.jpeg"></a>
+                <h6>Nusa Tenggara Timur</h6>
+                <h4>Labuan Bajo</h4>
+            </div>
+
+            <div class="box">
+                <a href="komodo.html">
+                <img src="assets/The secrets of Komodo National Park _ Lust In Her World _ Travel Blog.jpeg"></a>
+                <h6>Nusa Tenggara Timur</h6>
+                <h4>Pulau Komodo</h4>
+            </div>
+
+            
+        </div>
+
+        <div class="center-btn">
+            <a href="#" class="btn">See Destination</a>
+        </div>
+    </section>
+
+    <!--Explore Destination section-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+<section class="explore">
+    <div class="slide">
+
+        
+        <div class="item" style="background-image: url(assets/download.jpeg);">
+            <div class="content">
+                <div class="name">Switzerland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(assets/Pulau-Kanawa-adalah-pulau-kecil-dengan-pemandangan-alam-di-Labuan-Bajo-Manggarai-Barat.jpg);">
+            <div class="content">
+                <div class="name">Pulau Kanawa</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(assets/Komodo\ Tour\ -\ Explore\ A\ Whole\ New\ World\ _\ Hello\ Flores.jpeg);">
+            <div class="content">
+                <div class="name">Kelimutu</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(assets/Wae\ Rebo\,\ NTT.jpeg);">
+            <div class="content">
+                <div class="name">Wae Rebo Village</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(assets/pink.jpeg);">
+            <div class="content">
+                <div class="name">Pantai Pink</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(assets/labuan-bajo.jpg);">
+            <div class="content">
+                <div class="name">Labuan Bajo</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+</div>
+    </section>
+
+    <!--review section-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <section id ="review" class="review">
+        <div class="board">
+            <h2 class="text-light">Word form our customers</h2>
+            <p class="text-light">Some of the fullfilled costomers reviews</p>
+
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="flex">
+                        <div class="comments">
+                            Luar biasa keindahan pulau NTT. Saya jg orang timor Alor mau ijin utk gunakan beberapa slide dlm video ini utk mendukung lagu Natal versi bhs daerah Manggarai yg akan dinyanyikan oleh kami anak2 NTT yg merantau saat perayaan Natal di bln desember 23.. Terima kasih
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                            <a href="#">John V. Bellanmy</a>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex">
+                        <div class="comments">
+                            Ke wae rebo skg ga ribet, cukup antigen, selagi sudah vaksin kedua, sudah bs lolos validasi ke NTT,
+
+Dr Labuan Bajo, perjalanan darat ke waerebo 5-6 jam perjalanan darat, lalu dilanjutkan trekking 2-3 jam..
+
+Pengalaman yang sangat berkesan, sampe atas, hilang sudah rasa capek dan lelah.. ditambah, di waerebo tidak ada sinyal internet, jadi kita lebih enak interaksi sama penduduk desa dan teman2 perjalanan kita.. Semoga Waerebo bisa dapat juara di ADWI 2021 Aminn
+                         </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                            <a href="#">John V. Bellanmy</a>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex">
+                        <div class="comments">
+                            Tempat dmana kedamaian dan kebersamaan itu ada. Ko lepas hp untuk 2 hari su keren. Ko tdk sbuk dgn jaringan internet, trus ko posting kop kgiatan tiap detik, menit dan jam. Ko cukup ambl hp ko foto sekitar trus selfie. Smpe ko plg atau slama prjalan menju rmah ko tmukan jaringan baru ko pos kop foto² di Wae Rebo. Itu keren kawann!!!! 
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                            <a href="#">John V. Bellanmy</a>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+        
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
+        </div>
+    </section>
+
+    
+
+    <!--footer section-->
+    <section id="kontek" class="footer">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="#">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="#">watch</a></li>
+  	 				<li><a href="#">bag</a></li>
+  	 				<li><a href="#">shoes</a></li>
+  	 				<li><a href="#">dress</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+  	 				<a href="https://www.facebook.com/groups/nusatenggaratimor/?ref=share&mibextid=NSMWBT"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="https://x.com/NTT_Update?t=Z-37zqT9ZUtVsl9lpTVjDQ&s=09"><i class="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/ntt.update?igsh=aG9tMmxpOTk4cDRn"><i class="fab fa-instagram"></i></a>
+  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+
+    </section>
+
+        
+   
+
+
+    <!---custom hs file link-->
+    <script src="script.js"></script>
+    
+</body>
+</html>
